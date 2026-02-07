@@ -44,6 +44,7 @@
 
       try {
         overlay.classList.remove('hidden');
+        
         const response = await fetch("/analyze", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -77,7 +78,7 @@
           console.log(data);
         }
 
-      resultBox.textContent = data.character_sheet;
+      //resultBox.textContent = data.character_sheet;
     });
   </script>
 
