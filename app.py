@@ -35,24 +35,29 @@ async def analyze(req: Request):
     if result.endswith("```"):
         result = result[:-3]  # Remove trailing ```
     result = result.strip()
-
+    
     try:
         character = json.loads(result)
     except json.JSONDecodeError:
         return {"error": "Failed to parse character sheet", "raw": result}
-
+    
+    print(character)
+    print(character['race']['name'])
     # 2. Save JSON to temp file
     with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
         json.dump(character, f)
         temp_json_path = f.name
-
+        
+    #resultJson = json.load(result)
+    #print(resultJson.race.name)
+    #print(result)
     # 3. Generate PDF
     try:
         pdf_path = generate_character_sheet(temp_json_path, output_folder="/tmp/sheets")
         final_path = f"/tmp/sheets/{uuid.uuid4()}.pdf"
         os.rename(pdf_path, final_path)
         filename = os.path.basename(final_path)
-        return {"pdf_url": f"/pdf/{filename}"}
+        return {"pdf_url": f"/pdf/{filename}", "char_race": character['race']['name']}
         #return FileResponse(pdf_path, filename=os.path.basename(pdf_path), media_type="application/pdf")
     except Exception as e:
         return {"error": "Failed to generate PDF", "details": str(e)}
