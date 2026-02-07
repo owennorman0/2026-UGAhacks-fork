@@ -45,4 +45,5 @@ Analyze this person and generate their D&D character sheet."""
         }]
     )
     #print("done")
+    #print(response)
     return response.content[0].text
