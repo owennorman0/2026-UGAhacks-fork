@@ -8,26 +8,60 @@
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <div id="dice-overlay" class="hidden">
+    <img src="./images/DnD_dice_roll.gif">
+  </div>
+
   <h1 class="unifrakturmaguntia-regular">D&D Character Analyzer</h1>
   <div class="user-input">
-    <textarea id="description" rows="5" cols="50" placeholder="Describe a person..."></textarea>
+    <textarea id="description" rows="5" cols="50" placeholder="Describe your character..."></textarea>
     <button id="submit">Analyze</button>
   </div>
+
+
   <br>
   <pre id="result"></pre>
 
   <script>
+    const messages = ["Infusing a little magic into your character",
+      "Be honest, you came here after watching Strangers Thing",
+      "Consulting the Elder Scrolls",
+      "Bribing the Dungeon Master"];
+
+    function chooseMessage()  {
+      const index = Math.floor(Math.random() * messages.length);
+      return messages[index];
+    }
+
     document.getElementById("submit").addEventListener("click", async () => {
       const description = document.getElementById("description").value;
       const resultBox = document.getElementById("result");
-      resultBox.textContent = "Thinking...";
+      const overlay = document.getElementById("dice-overlay");
 
-      const response = await fetch("/analyze", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description })
-      });
+      resultBox.textContent = chooseMessage();
+      resultBox.classList.add('loading');
 
+      try {
+        overlay.classList.remove('hidden');
+        const response = await fetch("/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ description })
+        });
+
+        // Force a minimum wait of 2 seconds so the GIF can play
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        const data = await response.json();
+        resultBox.textContent = data.character_sheet;
+
+      } catch (error) {
+        console.error("Backend is down!,", error);
+        resultBox.textContent = "The tavern is closed (Server Error)";
+      } finally {
+        overlay.classList.add("hidden");
+      }
       if (response.headers.get("content-type").includes("application/pdf")) {
           const blob = await response.blob();
           const url = URL.createObjectURL(blob);
@@ -46,5 +80,7 @@
       resultBox.textContent = data.character_sheet;
     });
   </script>
+
+
 </body>
 </html>
