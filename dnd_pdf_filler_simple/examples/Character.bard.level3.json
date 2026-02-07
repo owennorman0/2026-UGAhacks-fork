@@ -1,0 +1,199 @@
+{
+  "name": "Silvius Nightwhisper",
+  "player": {
+    "name": "Owen Norman"
+  },
+  "classes": [
+    {
+      "name": "Bard",
+      "level": 3,
+      "hit_die": 8
+    }
+  ],
+  "race": {
+    "name": "Half-Elf",
+    "size": "Medium",
+    "speed": 30
+  },
+  "background": {
+    "name": "Charlatan",
+    "feature": "False Identity"
+  },
+  "alignment": "Neutral Good",
+  "experience_points": 900,
+  "ability_scores": {
+    "str": 10,
+    "dex": 14,
+    "con": 13,
+    "int": 16,
+    "wis": 12,
+    "cha": 18
+  },
+  "armor_class": {
+    "value": 13,
+    "base": 10,
+    "armor": 1,
+    "shield": 2
+  },
+  "speed": {
+    "Walk": 30,
+    "Fly": 0,
+    "Swim": 0,
+    "Climb": 0,
+    "Burrow": 0
+  },
+  "hit_points": {
+    "max": 20,
+    "current": 20,
+    "temp": 0
+  },
+  "hit_dice": {
+    "total": "3d8",
+    "current": "3"
+  },
+  "death_saves": {
+    "successes": 0,
+    "failures": 0
+  },
+  "inspiration": false,
+  "initiative_bonus": 2,
+  "saving_throws": {
+    "str": false,
+    "dex": true,
+    "con": false,
+    "int": false,
+    "wis": false,
+    "cha": true
+  },
+  "skills": {
+    "Acrobatics": false,
+    "Animal Handling": false,
+    "Arcana": false,
+    "Athletics": false,
+    "Deception": true,
+    "History": true,
+    "Insight": true,
+    "Intimidation": false,
+    "Investigation": false,
+    "Medicine": false,
+    "Nature": false,
+    "Perception": false,
+    "Performance": true,
+    "Persuasion": true,
+    "Religion": false,
+    "Sleight of Hand": true,
+    "Stealth": false,
+    "Survival": false
+  },
+  "proficiencies": ["Light armor", "Simple weapons", "Hand crossbows", "Longswords", "Rapiers", "Shortswords", "Thieves' tools", "Forgery kit"],
+  "languages": ["Common", "Elvish", "Halfling", "Thieves' Cant"],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attack_bonus": 4,
+      "damage": "1d8+2",
+      "damage_type": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attack_bonus": 4,
+      "damage": "1d4+2",
+      "damage_type": "piercing"
+    }
+  ],
+  "currency": {
+    "cp": 0,
+    "sp": 0,
+    "ep": 0,
+    "gp": 150,
+    "pp": 0
+  },
+  "equipment": ["Leather armor", "Rapier", "Dagger (2)", "Lute", "Entertainer's pack", "Forgery kit", "Signet ring of a fictional noble", "Set of fine clothes", "Thieves' tools"],
+  "features_and_traits": ["Bardic Inspiration", "Jack of All Trades", "Song of Rest", "Expertise", "Darkvision", "Fey Ancestry", "Extra Language", "Extra Skill", "False Identity"],
+  "feats": [],
+  "personality": "I am charming and persuasive, always ready with a quick wit and a winning smile to get what I need.",
+  "ideal": "Freedom. Rules are meant to be bent when helping others is more important than following the letter of the law.",
+  "bond": "I use my talents to help those who cannot help themselves, even if it means bending the truth.",
+  "flaw": "I can't help but scheme and manipulate, even when it would be better to be straightforward.",
+  "details": {
+    "personality": "I am charming and persuasive, always ready with a quick wit and a winning smile to get what I need.",
+    "ideal": "Freedom. Rules are meant to be bent when helping others is more important than following the letter of the law.",
+    "bond": "I use my talents to help those who cannot help themselves, even if it means bending the truth.",
+    "flaw": "I can't help but scheme and manipulate, even when it would be better to be straightforward."
+  },
+  "backstory": "Silvius learned early that a silver tongue and quick thinking could open more doors than brute force. He uses his natural charisma and perfect memory to weave elaborate deceptions that help those in need, though his methods often blur the line between right and wrong.",
+  "physical": {
+    "age": 28,
+    "height": "5'10\"",
+    "weight": 160,
+    "eyes": "Green",
+    "skin": "Fair",
+    "hair": "Dark brown, well-groomed"
+  },
+  "allies_and_organizations": "Various underground networks of information brokers and do-gooders",
+  "treasure": "None of special value",
+  "faction": {
+    "name": "The Wandering Court",
+    "rank": "Performer",
+    "contact": "Madam Velara, Spymaster"
+  },
+  "attacks_and_spellcasting": "Rapier +4 (1d8+2), Dagger +4 (1d4+2), Spells save DC 14, spell attack +6",
+  "spellcasting": {
+    "class": "Bard",
+    "ability": "Charisma",
+    "spell_save_dc": 14,
+    "spell_attack_bonus": 6,
+    "spell_slots": {
+      "level_1": {
+        "total": 4,
+        "remaining": 4
+      },
+      "level_2": {
+        "total": 2,
+        "remaining": 2
+      }
+    },
+    "cantrips_known": [
+      {
+        "name": "Minor Illusion",
+        "level": 0
+      },
+      {
+        "name": "Vicious Mockery",
+        "level": 0
+      }
+    ],
+    "spells_known": [
+      {
+        "name": "Charm Person",
+        "level": 1,
+        "prepared": true
+      },
+      {
+        "name": "Disguise Self",
+        "level": 1,
+        "prepared": true
+      },
+      {
+        "name": "Faerie Fire",
+        "level": 1,
+        "prepared": true
+      },
+      {
+        "name": "Healing Word",
+        "level": 1,
+        "prepared": true
+      },
+      {
+        "name": "Suggestion",
+        "level": 2,
+        "prepared": true
+      },
+      {
+        "name": "Hold Person",
+        "level": 2,
+        "prepared": true
+      }
+    ]
+  }
+}
