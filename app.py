@@ -57,7 +57,9 @@ async def analyze(req: Request):
         final_path = f"/tmp/sheets/{uuid.uuid4()}.pdf"
         os.rename(pdf_path, final_path)
         filename = os.path.basename(final_path)
-        return {"pdf_url": f"/pdf/{filename}", "char_race": character['race']['name']}
+        return {"pdf_url": f"/pdf/{filename}", "char_race": character['race']['name'], 
+                "class_name": character['classes'][0]['name'], "backstory": character['backstory'], 
+                "charName": character['name']}
         #return FileResponse(pdf_path, filename=os.path.basename(pdf_path), media_type="application/pdf")
     except Exception as e:
         return {"error": "Failed to generate PDF", "details": str(e)}
@@ -70,9 +72,6 @@ async def analyze(req: Request):
 async def serve_pdf(filename: str):
     return FileResponse(f"/tmp/sheets/{filename}", media_type="application/pdf")
 
-@app.get("/character", response_class=HTMLResponse)
-async def character():
-    return open("character.html").read()
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
